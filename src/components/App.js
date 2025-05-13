@@ -51,18 +51,27 @@ const App = () => {
       />
       <h3>Items you can buy are in Green color</h3>
       <table>
-        {data.map((product) => (
-          <tr key={product.id}>
-            <td>{product.item}</td>
-            <td
-              style={{
-                color: product.price <= Number(input) ? "green" : "red",
-              }}
-            >
-              {product.price}
-            </td>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
           </tr>
-        ))}
+        </thead>
+
+        <tbody>
+          {data.map((product) => (
+            <tr key={product.id}>
+              <td>{product.item}</td>
+              <td
+                style={{
+                  color: product.price <= Number(input) ? "green" : "red",
+                }}
+              >
+                {product.price}
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
